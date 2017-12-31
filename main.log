@@ -1,0 +1,213 @@
+2017-12-30 15:21:01,925|server|INFO|>		protocol created with index 0
+2017-12-30 15:21:01,925|client|INFO|>		protocol created with index 0
+2017-12-30 15:21:01,925|server|INFO|>		[protocol 0] connectionMade
+2017-12-30 15:21:01,925|client|INFO|>		[protocol 0] connectionMade
+2017-12-30 15:21:01,925|server|INFO|>		[protocol 0] received data: {"type":"get", "index":1}
+2017-12-30 15:21:01,925|server|INFO|>		[protocol 0] got get-request package index is 1
+2017-12-30 15:21:01,926|server|INFO|>		[protocol 0] connectionLost: [Failure instance: Traceback (failure with no frames): <type 'exceptions.TypeError'>: 'set' object does not support indexing
+]
+2017-12-30 15:21:01,927|client|INFO|>		[protocol 0] package received 
+2017-12-30 15:21:01,927|client|INFO|>		[protocol 0] connectionLost: [Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2017-12-30 15:22:55,575|client|INFO|>		protocol created with index 0
+2017-12-30 15:22:55,575|server|INFO|>		protocol created with index 0
+2017-12-30 15:22:55,575|client|INFO|>		[protocol 0] connectionMade
+2017-12-30 15:22:55,575|server|INFO|>		[protocol 0] connectionMade
+2017-12-30 15:22:55,576|server|INFO|>		[protocol 0] received data: {"type":"get", "index":1}
+2017-12-30 15:22:55,576|server|INFO|>		[protocol 0] got get-request package index is 1
+2017-12-30 15:22:55,577|server|INFO|>		[protocol 0] connectionLost: [Failure instance: Traceback (failure with no frames): <type 'exceptions.NameError'>: global name 'result' is not defined
+]
+2017-12-30 15:22:55,577|client|INFO|>		[protocol 0] package received 
+2017-12-30 15:22:55,577|client|INFO|>		[protocol 0] connectionLost: [Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2017-12-30 15:23:42,327|client|INFO|>		protocol created with index 0
+2017-12-30 15:23:42,327|server|INFO|>		protocol created with index 0
+2017-12-30 15:23:42,327|client|INFO|>		[protocol 0] connectionMade
+2017-12-30 15:23:42,327|server|INFO|>		[protocol 0] connectionMade
+2017-12-30 15:23:42,327|server|INFO|>		[protocol 0] received data: {"type":"get", "index":1}
+2017-12-30 15:23:42,328|server|INFO|>		[protocol 0] got get-request package index is 1
+2017-12-30 15:23:42,329|server|INFO|>		[protocol 0] connectionLost: [Failure instance: Traceback (failure with no frames): <type 'exceptions.AttributeError'>: 'dict' object has no attribute 'index'
+]
+2017-12-30 15:23:42,329|client|INFO|>		[protocol 0] package received 
+2017-12-30 15:23:42,329|client|INFO|>		[protocol 0] connectionLost: [Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2017-12-30 15:24:37,689|client|INFO|>		protocol created with index 0
+2017-12-30 15:24:37,689|server|INFO|>		protocol created with index 0
+2017-12-30 15:24:37,689|client|INFO|>		[protocol 0] connectionMade
+2017-12-30 15:24:37,690|server|INFO|>		[protocol 0] connectionMade
+2017-12-30 15:24:37,690|server|INFO|>		[protocol 0] received data: {"type":"get", "index":1}
+2017-12-30 15:24:37,690|server|INFO|>		[protocol 0] got get-request package index is 1
+2017-12-30 15:24:37,691|server|INFO|>		[protocol 0] connectionLost: [Failure instance: Traceback (failure with no frames): <type 'exceptions.TypeError'>: 'set' object does not support indexing
+]
+2017-12-30 15:24:37,691|client|INFO|>		[protocol 0] package received 
+2017-12-30 15:24:37,691|client|INFO|>		[protocol 0] connectionLost: [Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2017-12-30 15:25:23,240|client|INFO|>		protocol created with index 0
+2017-12-30 15:25:23,240|server|INFO|>		protocol created with index 0
+2017-12-30 15:25:23,240|client|INFO|>		[protocol 0] connectionMade
+2017-12-30 15:25:23,241|server|INFO|>		[protocol 0] connectionMade
+2017-12-30 15:25:23,241|server|INFO|>		[protocol 0] received data: {"type":"get", "index":1}
+2017-12-30 15:25:23,241|server|INFO|>		[protocol 0] got get-request package index is 1
+2017-12-30 15:25:23,242|server|INFO|>		[protocol 0] connectionLost: [Failure instance: Traceback (failure with no frames): <type 'exceptions.TypeError'>: dump() takes at least 2 arguments (1 given)
+]
+2017-12-30 15:25:23,242|client|INFO|>		[protocol 0] package received 
+2017-12-30 15:25:23,243|client|INFO|>		[protocol 0] connectionLost: [Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2017-12-30 15:26:18,459|client|INFO|>		protocol created with index 0
+2017-12-30 15:26:18,459|server|INFO|>		protocol created with index 0
+2017-12-30 15:26:18,459|client|INFO|>		[protocol 0] connectionMade
+2017-12-30 15:26:18,459|server|INFO|>		[protocol 0] connectionMade
+2017-12-30 15:26:18,460|server|INFO|>		[protocol 0] received data: {"type":"get", "index":1}
+2017-12-30 15:26:18,460|server|INFO|>		[protocol 0] got get-request package index is 1
+2017-12-30 15:26:18,460|client|INFO|>		[protocol 0] received data: {"index": 1, "type": "got", "data": "b"}
+2017-12-30 15:26:18,460|client|INFO|>		[protocol 0] got package 1 -> b
+2017-12-30 15:37:01,600|server|INFO|>		[protocol 0] connectionLost: [Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2017-12-30 15:37:01,602|client|INFO|>		[protocol 0] package received 
+2017-12-30 15:37:01,603|client|INFO|>		[protocol 0] connectionLost: [Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2017-12-30 15:37:04,181|server|INFO|>		protocol created with index 0
+2017-12-30 15:37:04,181|client|INFO|>		protocol created with index 0
+2017-12-30 15:37:04,182|client|INFO|>		[protocol 0] connectionMade
+2017-12-30 15:37:04,182|server|INFO|>		[protocol 0] connectionMade
+2017-12-30 15:37:04,182|server|INFO|>		[protocol 0] received data: {"type":"get", "index":1}
+2017-12-30 15:37:04,182|server|INFO|>		[protocol 0] got get-request package index is 1
+2017-12-30 15:37:04,183|client|INFO|>		[protocol 0] received data: {"index": 1, "type": "got", "data": "b"}
+2017-12-30 15:37:04,183|client|INFO|>		[protocol 0] got package 1 -> b
+2017-12-30 15:37:09,401|client|INFO|>		[protocol 0] package received 
+2017-12-30 15:37:09,402|client|INFO|>		[protocol 0] connectionLost: [Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2017-12-30 15:37:09,402|server|INFO|>		[protocol 0] connectionLost: [Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2017-12-30 16:20:24,909|client|INFO|>		protocol created with index 0
+2017-12-30 16:20:24,909|server|INFO|>		protocol created with index 0
+2017-12-30 16:20:24,910|server|INFO|>		[protocol 0] connectionMade
+2017-12-30 16:20:24,910|client|INFO|>		[protocol 0] connectionMade
+2017-12-30 16:20:24,910|server|INFO|>		[protocol 0] received data: {"type":"get", "index":1}
+2017-12-30 16:20:24,910|server|INFO|>		[protocol 0] got get-request package index is 1
+2017-12-30 16:20:24,910|client|INFO|>		[protocol 0] received data: {"index": 1, "type": "got", "data": "b"}
+2017-12-30 16:20:24,911|client|INFO|>		[protocol 0] package received 
+2017-12-30 16:20:24,911|client|INFO|>		[protocol 0] connectionLost: [Failure instance: Traceback (failure with no frames): <type 'exceptions.TypeError'>: coercing to Unicode: need string or buffer, int found
+]
+2017-12-30 16:20:24,912|server|INFO|>		[protocol 0] connectionLost: [Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2017-12-30 16:20:54,352|client|INFO|>		protocol created with index 0
+2017-12-30 16:20:54,352|server|INFO|>		protocol created with index 0
+2017-12-30 16:20:54,352|client|INFO|>		[protocol 0] connectionMade
+2017-12-30 16:20:54,352|server|INFO|>		[protocol 0] connectionMade
+2017-12-30 16:20:54,352|server|INFO|>		[protocol 0] received data: {"type":"get", "index":1}
+2017-12-30 16:20:54,353|server|INFO|>		[protocol 0] got get-request package index is 1
+2017-12-30 16:20:54,353|client|INFO|>		[protocol 0] received data: {"index": 1, "type": "got", "data": "b"}
+2017-12-30 16:20:54,354|client|INFO|>		[protocol 0] package received 
+2017-12-30 16:20:54,354|client|INFO|>		[protocol 0] connectionLost: [Failure instance: Traceback (failure with no frames): <type 'exceptions.NameError'>: global name 'factory' is not defined
+]
+2017-12-30 16:20:54,354|server|INFO|>		[protocol 0] connectionLost: [Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2017-12-30 16:26:28,834|client|INFO|>		protocol created with index 0
+2017-12-30 16:26:28,834|server|INFO|>		protocol created with index 0
+2017-12-30 16:26:28,834|server|INFO|>		[protocol 0] connectionMade
+2017-12-30 16:26:28,834|client|INFO|>		[protocol 0] connectionMade
+2017-12-30 16:26:28,834|server|INFO|>		[protocol 0] received data: {"type":"get", "index":1}
+2017-12-30 16:26:28,834|server|INFO|>		[protocol 0] got get-request package index is 1
+2017-12-30 16:26:28,835|client|INFO|>		[protocol 0] received data: {"index": 1, "type": "got", "data": "b"}
+2017-12-30 16:26:28,836|client|INFO|>		[protocol 0] package received 
+2017-12-30 16:26:28,836|client|INFO|>		[protocol 0] connectionLost: [Failure instance: Traceback (failure with no frames): <type 'exceptions.NameError'>: global name 'factory' is not defined
+]
+2017-12-30 16:26:28,836|server|INFO|>		[protocol 0] connectionLost: [Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2017-12-30 16:26:41,269|client|INFO|>		protocol created with index 0
+2017-12-30 16:26:41,269|server|INFO|>		protocol created with index 0
+2017-12-30 16:26:41,269|server|INFO|>		[protocol 0] connectionMade
+2017-12-30 16:26:41,269|client|INFO|>		[protocol 0] connectionMade
+2017-12-30 16:26:41,269|server|INFO|>		[protocol 0] received data: {"type":"get", "index":1}
+2017-12-30 16:26:41,269|server|INFO|>		[protocol 0] got get-request package index is 1
+2017-12-30 16:26:41,270|client|INFO|>		[protocol 0] received data: {"index": 1, "type": "got", "data": "b"}
+2017-12-30 16:26:41,270|client|INFO|>		[protocol 0] got package 1 -> b
+2017-12-30 16:26:51,470|client|INFO|>		[protocol 0] package received 
+2017-12-30 16:26:51,471|client|INFO|>		[protocol 0] connectionLost: [Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2017-12-30 16:26:51,471|server|INFO|>		[protocol 0] connectionLost: [Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2017-12-30 16:28:05,656|client|INFO|>		protocol created with index 0
+2017-12-30 16:28:05,656|server|INFO|>		protocol created with index 0
+2017-12-30 16:28:05,657|server|INFO|>		[protocol 0] connectionMade
+2017-12-30 16:28:05,657|client|INFO|>		[protocol 0] connectionMade
+2017-12-30 16:28:05,657|server|INFO|>		[protocol 0] received data: {"type":"get", "index":1}
+2017-12-30 16:28:05,657|server|INFO|>		[protocol 0] got get-request package index is 1
+2017-12-30 16:28:05,657|client|INFO|>		[protocol 0] received data: {"index": 1, "type": "got", "data": "b"}
+2017-12-30 16:28:05,658|client|INFO|>		[protocol 0] got package 1 -> b
+2017-12-30 16:28:21,805|client|INFO|>		[protocol 0] package received 
+2017-12-30 16:28:21,806|client|INFO|>		[protocol 0] connectionLost: [Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2017-12-30 16:28:21,806|server|INFO|>		[protocol 0] connectionLost: [Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2017-12-30 16:31:26,505|client|INFO|>		protocol created with index 0
+2017-12-30 16:31:26,505|server|INFO|>		protocol created with index 0
+2017-12-30 16:31:26,505|server|INFO|>		[protocol 0] connectionMade
+2017-12-30 16:31:26,505|client|INFO|>		[protocol 0] connectionMade
+2017-12-30 16:31:32,271|client|INFO|>		[protocol 0] package received 
+2017-12-30 16:31:32,272|client|INFO|>		[protocol 0] connectionLost: [Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2017-12-30 16:31:32,272|server|INFO|>		[protocol 0] connectionLost: [Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2017-12-30 16:31:36,177|server|INFO|>		protocol created with index 0
+2017-12-30 16:31:36,178|client|INFO|>		protocol created with index 0
+2017-12-30 16:31:36,178|server|INFO|>		[protocol 0] connectionMade
+2017-12-30 16:31:36,178|client|INFO|>		[protocol 0] connectionMade
+2017-12-30 16:31:38,118|client|INFO|>		[protocol 0] package received 
+2017-12-30 16:31:38,119|server|INFO|>		[protocol 0] connectionLost: [Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2017-12-30 16:31:38,119|client|INFO|>		[protocol 0] connectionLost: [Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2017-12-30 16:31:44,840|client|INFO|>		protocol created with index 0
+2017-12-30 16:31:44,840|server|INFO|>		protocol created with index 0
+2017-12-30 16:31:44,840|server|INFO|>		[protocol 0] connectionMade
+2017-12-30 16:31:44,840|client|INFO|>		[protocol 0] connectionMade
+2017-12-30 16:31:46,517|client|INFO|>		[protocol 0] package received 
+2017-12-30 16:31:46,517|client|INFO|>		[protocol 0] connectionLost: [Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2017-12-30 16:31:46,517|server|INFO|>		[protocol 0] connectionLost: [Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2017-12-30 16:32:02,047|client|INFO|>		protocol created with index 0
+2017-12-30 16:32:02,047|server|INFO|>		protocol created with index 0
+2017-12-30 16:32:02,048|server|INFO|>		[protocol 0] connectionMade
+2017-12-30 16:32:02,048|client|INFO|>		[protocol 0] connectionMade
+2017-12-30 16:32:03,367|client|INFO|>		[protocol 0] package received 
+2017-12-30 16:32:03,368|client|INFO|>		[protocol 0] connectionLost: [Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2017-12-30 16:32:03,368|server|INFO|>		[protocol 0] connectionLost: [Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2017-12-30 16:32:15,610|client|INFO|>		protocol created with index 0
+2017-12-30 16:32:15,610|server|INFO|>		protocol created with index 0
+2017-12-30 16:32:15,610|client|INFO|>		[protocol 0] connectionMade
+2017-12-30 16:32:15,610|server|INFO|>		[protocol 0] connectionMade
+2017-12-30 16:32:15,611|server|INFO|>		[protocol 0] received data: {"type":"get", "index":1}
+2017-12-30 16:32:15,611|server|INFO|>		[protocol 0] got get-request package index is 1
+2017-12-30 16:32:15,611|client|INFO|>		[protocol 0] received data: {"index": 1, "type": "got", "data": "b"}
+2017-12-30 16:32:15,611|client|INFO|>		[protocol 0] got package 1 -> b
+2017-12-30 16:32:16,984|client|INFO|>		[protocol 0] package received 
+2017-12-30 16:32:16,984|client|INFO|>		[protocol 0] connectionLost: [Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2017-12-30 16:32:16,985|server|INFO|>		[protocol 0] connectionLost: [Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2017-12-30 16:35:59,521|client|INFO|>		protocol created with index 0
+2017-12-30 16:35:59,521|server|INFO|>		protocol created with index 0
+2017-12-30 16:35:59,522|server|INFO|>		[protocol 0] connectionMade
+2017-12-30 16:35:59,523|client|INFO|>		[protocol 0] package received 
+2017-12-30 16:35:59,523|client|INFO|>		[protocol 0] connectionLost: [Failure instance: Traceback (failure with no frames): <type 'exceptions.KeyError'>: '"type"'
+]
+2017-12-30 16:35:59,523|server|INFO|>		[protocol 0] connectionLost: [Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2017-12-30 16:38:01,142|server|INFO|>		protocol created with index 0
+2017-12-30 16:38:01,142|client|INFO|>		protocol created with index 0
+2017-12-30 16:38:01,142|server|INFO|>		[protocol 0] connectionMade
+2017-12-30 16:38:01,142|client|INFO|>		[protocol 0] connectionMade
+2017-12-30 16:38:01,143|server|INFO|>		[protocol 0] received data: {"index": 1, "type": "get"}
+2017-12-30 16:38:01,143|server|INFO|>		[protocol 0] got get-request package index is 1
+2017-12-30 16:38:01,143|client|INFO|>		[protocol 0] received data: {"index": 1, "type": "got", "data": "b"}
+2017-12-30 16:38:01,143|client|INFO|>		[protocol 0] got package 1 -> b
+2017-12-30 16:38:02,936|client|INFO|>		[protocol 0] package received 
+2017-12-30 16:38:02,937|client|INFO|>		[protocol 0] connectionLost: [Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2017-12-30 16:38:02,937|server|INFO|>		[protocol 0] connectionLost: [Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
