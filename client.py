@@ -1,4 +1,4 @@
-from twisted.internet.protocol import Protocol, ClientFactory
+from twisted.internet.protocol import Protocol, ReconnectingClientFactory
 import misc
 import server
 import json
@@ -10,6 +10,8 @@ class ClientProtocol(Protocol):
         misc.commonInit(self, factory)
 
     def connectionMade(self):
+        # reset factory
+        self.factory.resetDelay()
         # make request
         self.transport.write(json.dumps(self.get(1)))
         #manage logs and stats
@@ -22,17 +24,23 @@ class ClientProtocol(Protocol):
         message = json.loads(data)
         handlers = {
             'pong': lambda x: self.handlePong(x),
-            'got' : lambda x: self.handleGot(x)
+            'got' : lambda x: self.handleGot(x),
+            'error': lambda x: self.handleError(x)
         }
         result = handlers.get(message['type'], lambda x:self.handleUnknown(x))(message)
+
+
+    def handleError(self, message):
+        self.factory.logger.info('[protocol {}] got error message {}'.format(self.index, json.dumps(message)))
 
     def handleUnknown(self, message):
         self.factory.logger.info('[protocol {}] got unknown message {}'.format(self.index, json.dumps(message)))
 
     def handleGot(self, message):
         #add data to packages
-        self.factory.packages[message['index']] = message['data']
+        #self.factory.packages[message['index']] = message['data']
         self.factory.logger.info('[protocol {}] got package {} -> {}'.format(self.index, message['index'], message['data']))
+        self.packageReceived(message)
 
     def handlePong(self, message):
         self.factory.logger.info('[protocol {}] got ponged'.format(self.index))
@@ -49,19 +57,18 @@ class ClientProtocol(Protocol):
         request['index'] = index
         return request
 
-
     def connectionLost(self, reason):
         self.packageReceived(self.data)
         misc.commonConnectionLost(self, reason)
 
-    def packageReceived(self, data):
-        self.factory.package_finished(data)
+    def packageReceived(self, message):
+        self.factory.package_finished(message)
         # log received data and state
-        self.factory.logger.info('[protocol {}] package received {}'.format(self.index, data))
+        self.factory.logger.info('[protocol {}] package received'.format(self.index))
 
-class MyClientFactory(ClientFactory):
+class MyClientFactory(ReconnectingClientFactory):
 
-    def __init__(self, deferred, packages):
+    def __init__(self, deferred, packages, index):
         self.numProtocols = 0
         self.protocolIndex = 0
         self.deferred = deferred
@@ -71,10 +78,10 @@ class MyClientFactory(ClientFactory):
     def buildProtocol(self, addr):
         return ClientProtocol(self)
 
-    def package_finished(self, data):
+    def package_finished(self, message):
         if self.deferred is not None:
             d, self.deferred = self.deferred, None
-            d.callback(data)
+            d.callback(message)
 
     def clientConnectionFailed(self, connector, reason):
         if self.deferred is not None:

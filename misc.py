@@ -8,6 +8,7 @@ def parse_args():
         parser = optparse.OptionParser(usage)
         parser.add_option("-s", "--server_port", dest="server_port", type="int")
         parser.add_option("-c", "--client_port", dest="client_port", type="int")
+        parser.add_option("-d", "--data_file", dest="data_file")
         options, _ = parser.parse_args()
         return (options)
 

@@ -16,27 +16,34 @@ import client
 #         self.transport.write("MESSAGE %s" % msg)
 
 
-def get_package(host, port):
-    """
-    Download a poem from the given host and port. This function
-    returns a Deferred which will be fired with the complete text of
-    the poem or a Failure if the poem could not be downloaded.
-    """
-    d = defer.Deferred()
-    from twisted.internet import reactor
-    factory = server.ServerFactory(d)
-    reactor.connectTCP(host, port, factory)
-    return d
+def get_package(network, index):
 
-# def gotProtocol(p):
-#     # p.sendMessage("Hello")
-#     reactor.callLater(1, p.sendMessage, "This is sent in a second")
-#     reactor.callLater(2, p.transport.loseConnection)
+    defers = []
+    from random import shuffle
+    shuffle(network)
+    for address in network:
+        host, port = address.split(':')
+        if port != options.server_port: #TODO replace port with host when running in cloud
+            d = defer.Deferred()
+            factory = client.MyClientFactory(d, packages, index) # todo add index
+            reactor.connectTCP(host, int(port), factory)
+            defers.append(d)
+    return defers
 
 
 def peer_main():
+    global options
     options = misc.parse_args()
-    packages = ["a", "b", None, "d"]
+    global packages
+    packages = open(options.data_file, 'r').read().split(',')
+    packages.remove('\n')
+    [None if v is '' else v for v in packages]
+    packages.append(None)
+    print packages
+    defers = []
+    NETWORK = [ "localhost:5999"
+                ,"localhost:5998"
+                ,"localhost:5997" ]
     #
     # point = TCP4ClientEndpoint(reactor, "localhost",  options.client_port)
     # d = connectProtocol(point, Echo())
@@ -45,21 +52,28 @@ def peer_main():
     def package_failed(err):
         print >>sys.stderr, 'Poem failed:', err
 
-    def got_package(package):
-        packages.append(package)
+    def got_package(message):
+        packages[message['index']] = message['data']
+        if None not in packages:
+            print "i`m done"
+            serverFactory.broadcastDone()
         print 'got packages'
 
-    d = defer.Deferred()
-    from twisted.internet import reactor
-    factory = client.MyClientFactory(d, packages)
-    reactor.connectTCP('localhost', options.client_port, factory)
+    serverFactory = server.ServerFactory(packages);
+    for i in range(len(packages)):
+        if packages[i] is None:
+            defers.extend(get_package(NETWORK, i))
 
-    d.addCallbacks(got_package, package_failed)
+    for d in defers:
+        d.addCallbacks(got_package, package_failed)
+
 
     endpoint = TCP4ServerEndpoint(reactor, options.server_port)
-    endpoint.listen(server.ServerFactory(packages))
+    endpoint.listen(serverFactory)
+
     from time import sleep
-    #sleep(3)
+    sleep(5)
+
     reactor.run()
 
 if __name__ == '__main__':
