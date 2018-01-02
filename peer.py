@@ -7,7 +7,7 @@ from twisted.internet.protocol import Protocol, ClientFactory
 from sys import stdout
 import misc
 import server
-import client
+import socket
 
 
 def get_package(network, index):
@@ -17,7 +17,9 @@ def get_package(network, index):
     shuffle(network)
     for address in network:
         host, port = address.split(':')
-        if port != options.server_port: #TODO replace port with host when running in cloud
+        #if port != options.server_port: #TODO replace port with host when running in cloud
+
+        if host != socket.gethostname():s
             d = defer.Deferred()
             factory = client.MyClientFactory(d, packages, index) # todo add index
             reactor.connectTCP(host, int(port), factory)
@@ -36,9 +38,9 @@ def peer_main():
 
     print packages
     defers = []
-    NETWORK = [ "localhost:5999"
-                ,"localhost:5998"
-                ,"localhost:5997" ]
+    NETWORK = [  "10.142.0.2:5002"
+                ,"10.142.0.3:5003"
+                ,"10.142.0.4:5004"]
 
     def package_failed(err):
         print >>sys.stderr, 'Poem failed:', err
