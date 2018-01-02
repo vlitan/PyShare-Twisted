@@ -8,12 +8,6 @@ from sys import stdout
 import misc
 import server
 import client
-# class Echo(Protocol):
-#     def dataReceived(self, data):
-#         stdout.write(data)
-#
-#     def sendMessage(self, msg):
-#         self.transport.write("MESSAGE %s" % msg)
 
 
 def get_package(network, index):
@@ -33,21 +27,18 @@ def get_package(network, index):
 
 def peer_main():
     global options
-    options = misc.parse_args()
     global packages
+
+    options = misc.parse_args()
     packages = open(options.data_file, 'r').read().split(',')
-    packages.remove('\n')
-    [None if v is '' else v for v in packages]
-    packages.append(None)
+    packages = [s.rstrip() for s in packages]
+    packages = map(lambda x: None if x == '' else x, packages)
+
     print packages
     defers = []
     NETWORK = [ "localhost:5999"
                 ,"localhost:5998"
                 ,"localhost:5997" ]
-    #
-    # point = TCP4ClientEndpoint(reactor, "localhost",  options.client_port)
-    # d = connectProtocol(point, Echo())
-    # d.addCallbacks(gotProtocol, handleClientError)
 
     def package_failed(err):
         print >>sys.stderr, 'Poem failed:', err
@@ -56,7 +47,7 @@ def peer_main():
         packages[message['index']] = message['data']
         if None not in packages:
             print "i`m done"
-            serverFactory.broadcastDone()
+        #    serverFactory.broadcastDone()
         print 'got packages'
 
     serverFactory = server.ServerFactory(packages);
