@@ -50,7 +50,7 @@ def peer_main():
         packages[message['index']] = message['data']
         if None not in packages:
             print "i`m done~~~~~~~~"
-            print packages
+        print packages
         #    serverFactory.broadcastDone()
         print 'got packages'
 
