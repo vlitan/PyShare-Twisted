@@ -43,7 +43,7 @@ class ClientProtocol(Protocol):
     def handleGot(self, message):
         #add data to packages
         #self.factory.packages[message['index']] = message['data']
-        self.factory.logger.info('[protocol {}] got package {} -> {}'.format(self.index, message['index'], message['data']))
+        self.factory.logger.info('[protocol {}] got done'.format(self.index))
         self.packageReceived(message)
 
     def handlePong(self, message):
