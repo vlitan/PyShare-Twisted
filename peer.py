@@ -11,6 +11,13 @@ import socket
 import client
 
 
+def gotDone():
+    doneCount += 1
+    if None not in packages and doneCount == len(NETWORK) - 1:
+        print "all peers are done"
+        reator.stop()
+
+
 def get_package(network, index):
 
     defers = []
@@ -22,7 +29,7 @@ def get_package(network, index):
 
         if host != socket.gethostname():
             d = defer.Deferred()
-            factory = client.MyClientFactory(d, packages, index) # todo add index
+            factory = client.MyClientFactory(d, packages, index, gotDone) # todo add index
             reactor.connectTCP(host, int(port), factory)
             defers.append(d)
     return defers
@@ -31,7 +38,10 @@ def get_package(network, index):
 def peer_main():
     global options
     global packages
-
+    global NETWORK
+    global doneCount
+    
+    doneCount = 0;
     options = misc.parse_args()
     packages = open(options.data_file, 'r').read().split(',')
     packages = [s.rstrip() for s in packages]
@@ -39,9 +49,11 @@ def peer_main():
 
     print packages
     defers = []
+
     NETWORK = [  "10.142.0.2:5002"
                 ,"10.142.0.3:5003"
                 ,"10.142.0.4:5004"]
+
 
     def package_failed(err):
         print >>sys.stderr, 'Poem failed:', err
@@ -51,8 +63,8 @@ def peer_main():
             packages[message['index']] = message['data']
         if None not in packages:
             print "i`m done~~~~~~~~"
-        print packages
-        #    serverFactory.broadcastDone()
+            print packages
+            serverFactory.broadcastDone()
         print 'got packages'
 
     serverFactory = server.ServerFactory(packages);
