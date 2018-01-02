@@ -19,7 +19,7 @@ def get_package(network, index):
         host, port = address.split(':')
         #if port != options.server_port: #TODO replace port with host when running in cloud
 
-        if host != socket.gethostname():s
+        if host != socket.gethostname():
             d = defer.Deferred()
             factory = client.MyClientFactory(d, packages, index) # todo add index
             reactor.connectTCP(host, int(port), factory)
