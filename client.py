@@ -13,7 +13,7 @@ class ClientProtocol(Protocol):
         # reset factory
         self.factory.resetDelay()
         # make request
-        self.transport.write(json.dumps(self.get(1)))
+        self.transport.write(json.dumps(self.get(self.factory.index)))
         #manage logs and stats
         misc.commonConnectionMade(self)
 
@@ -73,6 +73,7 @@ class MyClientFactory(ReconnectingClientFactory):
         self.protocolIndex = 0
         self.deferred = deferred
         self.packages = packages
+        self.index = index
         misc.setupLogger(self, __name__)
 
     def buildProtocol(self, addr):
