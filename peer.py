@@ -8,6 +8,7 @@ from sys import stdout
 import misc
 import server
 import socket
+import client
 
 
 def get_package(network, index):
