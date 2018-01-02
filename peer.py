@@ -47,7 +47,8 @@ def peer_main():
         print >>sys.stderr, 'Poem failed:', err
 
     def got_package(message):
-        packages[message['index']] = message['data']
+        if (message['data'] is not None):
+            packages[message['index']] = message['data']
         if None not in packages:
             print "i`m done~~~~~~~~"
         print packages
