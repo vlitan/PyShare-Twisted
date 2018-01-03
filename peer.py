@@ -28,8 +28,7 @@ def peer_main():
             print doneCount
             if None not in packages and doneCount == len(NETWORK) - 1:
                print "all peers are done"
-               from twisted.internet import reactor
-               reator.stop()
+               reactor.stop()
                print packages
         defers = []
         # shuffle bootstrap
