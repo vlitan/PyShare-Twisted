@@ -72,10 +72,10 @@ def peer_main():
     def got_package(message):
         if (message['data'] is not None):
             packages[message['index']] = message['data']
-        if None not in packages:
-            print "i`m done"
-            print [p.encode('ascii') for p in packages]
-            serverFactory.broadcastDone()
+            if None not in packages:
+                print "i`m done"
+                print [p.encode('ascii') for p in packages]
+                serverFactory.broadcastDone()
 
     # create server factory
     serverFactory = server.ServerFactory(packages);

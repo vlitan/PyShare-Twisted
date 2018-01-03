@@ -71,6 +71,5 @@ class ServerFactory(Factory):
         return ServerProtocol(self)
 
     def broadcastDone(self):
-        print self.servers
         for protocol in self.servers:
             protocol.sendDone()
