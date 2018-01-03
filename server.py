@@ -21,21 +21,16 @@ class ServerProtocol(Protocol):
         # log state and data
         self.factory.logger.info('[protocol {}] received data: {}'.format(self.index, data))
         # handle request and respond
-        message = json.loads(data)
+        message = json.loads('{' + data.rsplit('{', 1)[1])
         handlers = {
             'ping': lambda x: self.handlePing(x),
-            'get' : lambda x: self.handleGet(x),
-            'done': lambda x: self.handleDone(x)
+            'get' : lambda x: self.handleGet(x)
         }
         result = handlers.get(message['type'], lambda x:self.handleUnknown(x))(message)
         self.transport.write(json.dumps(result))
 
     #TODO all server handlers should return JSONs
-    def handleDone(self, message):
-        self.factory.logger.info('[protocol {}] got done message'.format(self.index))
-        result = {}
-        result['type'] = "ok"
-        return result
+
 
     def handleUnknown(self, message):
         self.factory.logger.info('[protocol {}] got unknown message type'.format(self.index))

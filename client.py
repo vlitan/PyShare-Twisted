@@ -21,12 +21,12 @@ class ClientProtocol(Protocol):
         # log state and data
         self.factory.logger.info('[protocol {}] received data: {}'.format(self.index, data))
         # handle response
-        message = json.loads(data)
+        message = json.loads('{' + data.rsplit('{', 1)[1])
         handlers = {
-            'pong': lambda x: self.handlePong(x),
-            'got' : lambda x: self.handleGot(x),
+            'pong':  lambda x: self.handlePong(x),
+            'got' :  lambda x: self.handleGot(x),
             'error': lambda x: self.handleError(x),
-            'done': lambda x: self.handleDone(x)
+            'done':  lambda x: self.handleDone(x)
         }
         result = handlers.get(message['type'], lambda x:self.handleUnknown(x))(message)
 
@@ -72,7 +72,7 @@ class ClientProtocol(Protocol):
 
 class MyClientFactory(ReconnectingClientFactory):
 
-    def __init__(self, deferred, packages, index, gotDoneCallback):
+    def __init__(self, deferred, packages, index, gotDoneCallback = None):
         self.numProtocols = 0
         self.protocolIndex = 0
         self.deferred = deferred
@@ -81,8 +81,8 @@ class MyClientFactory(ReconnectingClientFactory):
         self.gotDoneCallback = gotDoneCallback
         misc.setupLogger(self, __name__)
 
-    def gotDone():
-        gotDoneCallback()
+    def gotDone(self):
+        self.gotDoneCallback()
 
 
     def buildProtocol(self, addr):
