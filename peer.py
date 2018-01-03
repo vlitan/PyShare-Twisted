@@ -11,10 +11,6 @@ import socket
 import client
 
 
-
-
-
-
 def peer_main():
     # TODO replace global with better and local use of variables ;)
     global options
@@ -27,11 +23,14 @@ def peer_main():
         # done callback, called when a client receives a "done"
         def gotDone():
             global doneCount
+            global packages
             doneCount += 1
             print doneCount
             if None not in packages and doneCount == len(NETWORK) - 1:
                print "all peers are done"
+               from twisted.internet import reactor
                reator.stop()
+               print packages
         defers = []
         # shuffle bootstrap
         from random import shuffle
