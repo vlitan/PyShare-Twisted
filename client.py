@@ -13,7 +13,8 @@ class ClientProtocol(Protocol):
         # reset factory
         self.factory.resetDelay()
         # make request
-        self.transport.write(json.dumps(self.get(self.factory.index)))
+        # self.transport.write(json.dumps(self.get(self.factory.index)))
+        self.write(json.dumps(self.ping()))
         #manage logs and stats
         misc.commonConnectionMade(self)
 
@@ -21,7 +22,7 @@ class ClientProtocol(Protocol):
         # log state and data
         self.factory.logger.info('[protocol {}] received data: {}'.format(self.index, data))
         # handle response
-        message = json.loads('{' + data.rsplit('{', 1)[1])
+        message = json.loads('{' + data.rsplit('{', 1)[1]) #overcome non-flushing "stream"
         handlers = {
             'pong':  lambda x: self.handlePong(x),
             'got' :  lambda x: self.handleGot(x),
@@ -41,9 +42,9 @@ class ClientProtocol(Protocol):
         self.factory.logger.info('[protocol {}] got unknown message {}'.format(self.index, json.dumps(message)))
 
     def handleGot(self, message):
-        #add data to packages
-        #self.factory.packages[message['index']] = message['data']
+        # log
         self.factory.logger.info('[protocol {}] got done'.format(self.index))
+        # callback
         self.packageReceived(message)
 
     def handlePong(self, message):
@@ -55,7 +56,8 @@ class ClientProtocol(Protocol):
         return request
 
     def get(self, index):
-    #    if (self.factory.packages[index] is None):
+        #TODO actuallt use this condition and treat case
+    #   if (self.factory.packages[index] is None):
         request = {}
         request['type'] = "get"
         request['index'] = index
@@ -70,15 +72,24 @@ class ClientProtocol(Protocol):
         # log received data and state
         self.factory.logger.info('[protocol {}] package received'.format(self.index))
 
+    def write(self, message):
+        msg = json.loads(message)
+        msg['address'] = self.factory.address
+        self.transport.write(json.dumps(msg))
+
 class MyClientFactory(ReconnectingClientFactory):
 
-    def __init__(self, deferred, packages, index, gotDoneCallback = None):
-        self.numProtocols = 0
-        self.protocolIndex = 0
-        self.deferred = deferred
-        self.packages = packages
-        self.index = index
-        self.gotDoneCallback = gotDoneCallback
+    maxDelay = 10
+    continueTrying = True
+
+    def __init__(self, deferred, packages, index, address, gotDoneCallback = None):
+        self.numProtocols = 0       # active number of protocols
+        self.protocolIndex = 0      # current index for protocol
+        self.deferred = deferred    # deferred
+        self.packages = packages    # list of packages TODO remove this
+        self.index = index          # index of desired package
+        self.address = address      # address of other peer
+        self.gotDoneCallback = gotDoneCallback # callback for done
         misc.setupLogger(self, __name__)
 
     def gotDone(self):

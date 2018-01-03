@@ -10,7 +10,6 @@ class ServerProtocol(Protocol):
 
     def connectionMade(self):
         self.factory.servers.append(self)
-        print self.factory.servers
         misc.commonConnectionMade(self)
 
     def connectionLost(self, reason):
@@ -72,8 +71,6 @@ class ServerFactory(Factory):
         return ServerProtocol(self)
 
     def broadcastDone(self):
-        print 'start to broadcast'
         print self.servers
         for protocol in self.servers:
-            print 'broadcast o'
             protocol.sendDone()
