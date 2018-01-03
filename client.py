@@ -13,8 +13,8 @@ class ClientProtocol(Protocol):
         # reset factory
         self.factory.resetDelay()
         # make request
-        # self.transport.write(json.dumps(self.get(self.factory.index)))
-        self.write(json.dumps(self.ping()))
+        self.transport.write(json.dumps(self.get(self.factory.index)))
+        #self.write(json.dumps(self.ping()))
         #manage logs and stats
         misc.commonConnectionMade(self)
 
